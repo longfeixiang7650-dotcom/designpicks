@@ -210,7 +210,7 @@ export default function ToolDetailPage() {
             <h2 className="font-bold text-[#F0F4F8] flex items-center text-base">
               <Activity className="w-5 h-5 mr-2 text-[#22D3EE]" /> Real Data
             </h2>
-            <span className="text-xs text-[#4A6380]">Auto-updated from public sources</span>
+            <span className="text-xs text-[#4A6380]">Data sourced from Wikipedia &amp; GitHub</span>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {foundedYear && (
@@ -234,8 +234,8 @@ export default function ToolDetailPage() {
             </div>
             <div className="bg-[#162440] rounded-lg p-3">
               <RefreshCw className="w-4 h-4 text-[#10B981] mb-1" />
-              <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">Data Source</p>
-              <p className="text-sm font-bold text-[#F0F4F8]">Wikipedia + GitHub</p>
+              <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">Last Verified</p>
+              <p className="text-sm font-bold text-[#F0F4F8]">June 2026</p>
             </div>
           </div>
         </div>
