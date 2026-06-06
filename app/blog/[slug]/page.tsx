@@ -20,7 +20,7 @@ export async function generateMetadata({
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} — B2B Software List`,
+    title: `${post.title} — Design Picks`,
     description: post.excerpt,
   };
 }
@@ -179,9 +179,9 @@ export default async function BlogPostPage({
     post.excerpt
   );
   const orgJsonLd = organizationSchema(
-    'B2B Software List',
-    'https://b2b-saas-tool-hub.com',
-    'Comprehensive B2B SaaS directory and tool hub for modern enterprises.'
+    'Design Picks',
+    'https://designpicks.net',
+    'Design curation and comparison platform for creative professionals.'
   );
 
   return (

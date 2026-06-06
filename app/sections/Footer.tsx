@@ -46,7 +46,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#22D3EE] flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <span className="text-lg font-bold text-[#F0F4F8]">SaaS Hub</span>
+              <span className="text-lg font-bold text-[#F0F4F8]">Design Picks</span>
             </Link>
             <p className="text-sm text-[#8BA3BE] leading-relaxed mb-6">
               The most comprehensive directory of B2B SaaS tools. Discover, compare, and integrate the best software for your business.
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#1E3A5F] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#4A6380]">
-            &copy; {new Date().getFullYear()} B2B Software List. All rights reserved.
+            &copy; {new Date().getFullYear()} Design Picks. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-[#4A6380] hover:text-[#8BA3BE] transition-colors">

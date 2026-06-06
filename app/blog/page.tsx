@@ -4,7 +4,7 @@ import { BLOG_POSTS } from "@/data/blog-posts";
 import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog — B2B Software List",
+  title: "Blog — Design Picks",
   description:
     "Expert insights, comparisons, and strategies for choosing and using enterprise B2B SaaS tools. Stay informed with the latest in software and technology.",
 };

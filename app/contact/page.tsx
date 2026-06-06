@@ -141,22 +141,22 @@ export default function ContactPage() {
                 <p className="text-sm text-[#8BA3BE]">
                   <strong className="text-[#F0F4F8]">Support:</strong>
                   <br />
-                  <a href="mailto:support@b2b-software.net" className="text-[#3B82F6] hover:underline">
-                    support@b2b-software.net
+                  <a href="mailto:support@designpicks.net" className="text-[#3B82F6] hover:underline">
+                    support@designpicks.net
                   </a>
                 </p>
                 <p className="text-sm text-[#8BA3BE]">
                   <strong className="text-[#F0F4F8]">General:</strong>
                   <br />
-                  <a href="mailto:info@b2b-software.net" className="text-[#3B82F6] hover:underline">
-                    info@b2b-software.net
+                  <a href="mailto:info@designpicks.net" className="text-[#3B82F6] hover:underline">
+                    info@designpicks.net
                   </a>
                 </p>
                 <p className="text-sm text-[#8BA3BE]">
                   <strong className="text-[#F0F4F8]">Press:</strong>
                   <br />
-                  <a href="mailto:info@b2b-software.net" className="text-[#3B82F6] hover:underline">
-                    info@b2b-software.net
+                  <a href="mailto:info@designpicks.net" className="text-[#3B82F6] hover:underline">
+                    info@designpicks.net
                   </a>
                 </p>
               </div>
@@ -168,9 +168,9 @@ export default function ContactPage() {
                 Office
               </h3>
               <p className="text-sm text-[#8BA3BE] leading-relaxed">
-                548 Market Street, Suite 19530
+                88 Creative Crescent, Suite 100
                 <br />
-                San Francisco, CA 94104
+                San Francisco, CA 94105
                 <br />
                 United States
               </p>

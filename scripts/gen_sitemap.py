@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""生成B2B站完整sitemap"""
+"""生成designpicks.net完整sitemap"""
 import re
 
 with open('app/data/tools.ts', 'r') as f:
@@ -59,7 +59,7 @@ const TOOL_SLUGS = [
 ];
 
 export async function GET() {{
-  const baseUrl = "https://b2b-software.net";
+  const baseUrl = "https://designpicks.net";
   
   const urls: string[] = [];
   
@@ -92,7 +92,7 @@ export async function GET() {{
 with open('app/sitemap.xml/route.ts', 'w') as f:
     f.write(sitemap)
 
-print(f"✅ B2B站sitemap已生成: {len(tool_slugs)}个工具 + {len(blog_slugs)}篇博客")
+print(f"✅ designpicks.net sitemap已生成: {len(tool_slugs)}个工具 + {len(blog_slugs)}篇博客")
 
 import subprocess
 r = subprocess.run(['wc', '-l', 'app/sitemap.xml/route.ts'], capture_output=True, text=True)

@@ -69,9 +69,9 @@ export default function ToolDetailPage() {
     scripts.push(s1);
 
     const org = organizationSchema(
-      'B2B Software List',
-      'https://b2b-saas-tool-hub.com',
-      'Comprehensive B2B SaaS directory and tool hub for modern enterprises.'
+      'Design Picks',
+      'https://designpicks.net',
+      'Design curation and comparison platform for creative professionals.'
     );
     const s2 = document.createElement('script');
     s2.type = 'application/ld+json';
