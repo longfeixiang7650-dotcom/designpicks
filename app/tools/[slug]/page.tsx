@@ -17,8 +17,12 @@ import {
   Quote,
   Layers,
   Sparkles,
+  Calendar,
+  Github,
+  Activity,
+  RefreshCw,
 } from "lucide-react";
-import { TOOL_MAP, ALL_TOOLS } from "@/data/tools";
+import { TOOL_MAP, ALL_TOOLS, getToolExternalData } from "@/data/tools";
 import { softwareSchema, organizationSchema } from "@/lib/schema";
 
 function ScoreBar({ label, score, color }: { label: string; score: number; color: string }) {
@@ -114,6 +118,9 @@ export default function ToolDetailPage() {
     })
     .filter(Boolean) as string[];
 
+  const externalData = getToolExternalData(tool.name);
+  const starsCount = externalData?.ghStars ?? null;
+  const foundedYear = externalData?.founded ?? null;
   const scores = tool.scoreBreakdown || {
     features: 90,
     reviews: 88,
@@ -194,6 +201,42 @@ export default function ToolDetailPage() {
               Category
             </p>
             <p className="text-sm font-bold text-[#F0F4F8]">{tool.category}</p>
+          </div>
+        </div>
+
+        {/* External Data - Real客观数据 */}
+        <div className="bg-[#0F1D32] border border-[#1E3A5F] rounded-xl p-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-bold text-[#F0F4F8] flex items-center text-base">
+              <Activity className="w-5 h-5 mr-2 text-[#22D3EE]" /> Real Data
+            </h2>
+            <span className="text-xs text-[#4A6380]">Auto-updated from public sources</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {foundedYear && (
+              <div className="bg-[#162440] rounded-lg p-3">
+                <Calendar className="w-4 h-4 text-[#22D3EE] mb-1" />
+                <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">Founded</p>
+                <p className="text-sm font-bold text-[#F0F4F8]">{foundedYear}</p>
+              </div>
+            )}
+            {starsCount !== null && (
+              <div className="bg-[#162440] rounded-lg p-3">
+                <Github className="w-4 h-4 text-[#F0F4F8] mb-1" />
+                <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">GitHub Stars</p>
+                <p className="text-sm font-bold text-[#F0F4F8]">{starsCount.toLocaleString()}</p>
+              </div>
+            )}
+            <div className="bg-[#162440] rounded-lg p-3">
+              <DollarSign className="w-4 h-4 text-[#3B82F6] mb-1" />
+              <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">Pricing</p>
+              <p className="text-sm font-bold text-[#F0F4F8]">{tool.pricing}</p>
+            </div>
+            <div className="bg-[#162440] rounded-lg p-3">
+              <RefreshCw className="w-4 h-4 text-[#10B981] mb-1" />
+              <p className="text-[10px] text-[#4A6380] uppercase tracking-wider">Data Source</p>
+              <p className="text-sm font-bold text-[#F0F4F8]">Wikipedia + GitHub</p>
+            </div>
           </div>
         </div>
 

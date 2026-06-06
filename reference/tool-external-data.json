@@ -1,0 +1,158 @@
+{
+  "Canva": {
+    "name": "Canva"
+  },
+  "Adobe Photoshop": {
+    "name": "Adobe Photoshop"
+  },
+  "Adobe Illustrator": {
+    "name": "Adobe Illustrator"
+  },
+  "Adobe InDesign": {
+    "name": "Adobe InDesign"
+  },
+  "CorelDRAW": {
+    "name": "CorelDRAW"
+  },
+  "Affinity Designer": {
+    "name": "Affinity Designer"
+  },
+  "Affinity Photo": {
+    "name": "Affinity Photo"
+  },
+  "Affinity Publisher": {
+    "name": "Affinity Publisher"
+  },
+  "Pixelmator Pro": {
+    "name": "Pixelmator Pro"
+  },
+  "Procreate": {
+    "name": "Procreate"
+  },
+  "Figma": {
+    "name": "Figma"
+  },
+  "Sketch": {
+    "name": "Sketch"
+  },
+  "Adobe XD": {
+    "name": "Adobe XD"
+  },
+  "Framer": {
+    "name": "Framer"
+  },
+  "Lunacy": {
+    "name": "Lunacy"
+  },
+  "Penpot": {
+    "name": "Penpot"
+  },
+  "Balsamiq": {
+    "name": "Balsamiq"
+  },
+  "Axure RP": {
+    "name": "Axure RP"
+  },
+  "Marvel": {
+    "name": "Marvel"
+  },
+  "Proto.io": {
+    "name": "Proto.io"
+  },
+  "InVision": {
+    "name": "InVision"
+  },
+  "Principle": {
+    "name": "Principle"
+  },
+  "Origami Studio": {
+    "name": "Origami Studio",
+    "github_stars": 3238,
+    "github_updated": "2026-05-17"
+  },
+  "Flinto": {
+    "name": "Flinto"
+  },
+  "ProtoPie": {
+    "name": "ProtoPie"
+  },
+  "Mockplus": {
+    "name": "Mockplus"
+  },
+  "UXPin": {
+    "name": "UXPin"
+  },
+  "Justinmind": {
+    "name": "Justinmind"
+  },
+  "Fluid UI": {
+    "name": "Fluid UI"
+  },
+  "HotGloo": {
+    "name": "HotGloo"
+  },
+  "Blender": {
+    "name": "Blender",
+    "github_stars": 18643,
+    "github_updated": "2026-06-06"
+  },
+  "Autodesk Maya": {
+    "name": "Autodesk Maya"
+  },
+  "Cinema 4D": {
+    "name": "Cinema 4D"
+  },
+  "SketchUp": {
+    "name": "SketchUp"
+  },
+  "Unity": {
+    "name": "Unity"
+  },
+  "Unreal Engine": {
+    "name": "Unreal Engine"
+  },
+  "Spline": {
+    "name": "Spline"
+  },
+  "Vectorworks": {
+    "name": "Vectorworks"
+  },
+  "Rhino 3D": {
+    "name": "Rhino 3D"
+  },
+  "Adobe After Effects": {
+    "name": "Adobe After Effects"
+  },
+  "Envato Elements": {
+    "name": "Envato Elements"
+  },
+  "Freepik": {
+    "name": "Freepik",
+    "monthly_views": 2042
+  },
+  "Flaticon": {
+    "name": "Flaticon"
+  },
+  "Unsplash": {
+    "name": "Unsplash"
+  },
+  "Pexels": {
+    "name": "Pexels"
+  },
+  "Shutterstock": {
+    "name": "Shutterstock"
+  },
+  "Depositphotos": {
+    "name": "Depositphotos"
+  },
+  "Storyblocks": {
+    "name": "Storyblocks"
+  },
+  "Vecteezy": {
+    "name": "Vecteezy"
+  },
+  "Creative Market": {
+    "name": "Creative Market",
+    "monthly_views": 1145
+  }
+}
