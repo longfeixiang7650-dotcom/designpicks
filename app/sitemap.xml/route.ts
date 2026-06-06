@@ -38,6 +38,7 @@ const BLOG_SLUGS = [
   "terraform-vs-pulumi-vs-aws-cdk-2026",
   "b2b-saas-review-platforms-comparison-2026",
   "bambooHR-vs-rippling-vs-lattice-hr-tech-2026",
+  "canva-vs-photoshop-vs-illustrator-2026-comparison",
 ];
 
 const TOOL_SLUGS = [
@@ -120,7 +121,7 @@ const TOOL_SLUGS = [
 ];
 
 export async function GET() {
-  const baseUrl = "https://b2b-software.net";
+  const baseUrl = "https://designpicks.net";
   
   const urls: string[] = [];
   
