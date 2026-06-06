@@ -175,7 +175,7 @@ export default async function BlogPostPage({
     post.title,
     post.author,
     post.date,
-    'B2B Software List',
+    'DesignPicks',
     post.excerpt
   );
   const orgJsonLd = organizationSchema(
