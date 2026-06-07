@@ -3,6 +3,7 @@ import { MetadataRoute } from "next";
 const BLOG_SLUGS = [
   "figma-vs-sketch-vs-adobe-xd-2026-comparison",
     "adobe-illustrator-vs-affinity-designer-vs-coreldraw-2026-vector-software-comparison",
+    "canva-vs-adobe-express-vs-visme-2026-comparison",
 ] as const;
 
 const TOOL_SLUGS = [
