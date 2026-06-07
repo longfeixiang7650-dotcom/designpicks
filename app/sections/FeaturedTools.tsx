@@ -61,7 +61,7 @@ const FEATURED_TOOLS: Tool[] = [
     category: 'Finance',
     rating: 4.9,
     reviews: 512,
-    description: 'Global B2B payment gateway API with built-in fraud prevention.',
+    description: 'Global payment gateway API with built-in fraud prevention.',
     icon: CreditCard,
     pricing: 'Pay-as-you-go',
   },
@@ -109,7 +109,7 @@ export default function FeaturedTools() {
         >
           <div>
             <h2 className="text-2xl md:text-[2rem] font-bold text-[#F0F4F8] tracking-tight">
-              Featured SaaS Solutions
+              Featured Design Tools
             </h2>
             <p className="text-[#8BA3BE] mt-1 text-base">
               Hand-picked tools highly rated by enterprise users.

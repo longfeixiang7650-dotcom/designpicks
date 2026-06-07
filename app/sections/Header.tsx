@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Building2, Search } from 'lucide-react';
+import { Menu, X, Palette, Search } from 'lucide-react';
 import Link from 'next/link';
 
 const NAV_ITEMS = [
@@ -36,10 +36,10 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#22D3EE] flex items-center justify-center">
-            <Building2 className="w-4 h-4 text-white" />
+            <Palette className="w-4 h-4 text-white" />
           </div>
           <span className="text-lg font-bold text-[#F0F4F8] group-hover:text-[#3B82F6] transition-colors">
-            B2B SaaS Hub
+            DesignPicks
           </span>
         </Link>
 

@@ -65,7 +65,7 @@ export default function DisclosurePage() {
               <li>Amazon Associates</li>
               <li>PartnerStack</li>
               <li>Impact Radius</li>
-              <li>Individual SaaS vendor referral programs</li>
+              <li>Individual vendor referral programs</li>
             </ul>
             <p className="mt-3">
               This list may change over time as we add or remove affiliate partnerships.

@@ -23,92 +23,108 @@ function deslugify(slug: string): string | undefined {
 }
 
 const BUYING_GUIDES: Record<string, string> = {
-  CRM:
-    "When choosing a CRM platform, consider your team size, sales process complexity, and integration needs. Enterprise organizations with complex workflows benefit from Salesforce's deep customization, while mid-market teams often prefer HubSpot's ease of use. Key factors to evaluate include AI-powered lead scoring, pipeline visualization, mobile access, and API ecosystem. Look for platforms that offer seamless integration with your existing email, calendar, and marketing tools.",
-  Marketing:
-    "The best marketing platform depends on your primary channel strategy. Content-driven teams benefit from HubSpot's inbound marketing suite, while email-focused marketers may prefer Mailchimp or Klaviyo. Evaluate automation capabilities, lead scoring sophistication, multi-channel campaign management, and analytics depth. Consider total cost of ownership including contact tiers — the jump between pricing tiers can be significant for growing teams.",
-  Communication:
-    "Evaluate communication platforms based on your organization's size, remote work setup, and integration ecosystem. Slack leads for channel-based messaging and app integrations, while Zoom excels at video quality and meeting features. Microsoft Teams offers the deepest Office 365 integration. Consider AI features like meeting summaries, smart replies, and thread summarization. For enterprise deployments, prioritize admin controls, compliance features, and guest access management.",
-  Management:
-    "Project management tools vary significantly in their approach. Asana excels at cross-team portfolio management and goal tracking. Monday.com offers the most visual, customizable interface with 200+ templates. Jira is the standard for software development teams. ClickUp provides the most features per dollar. Consider your team's workflow style — some prefer Kanban boards, others need Gantt charts or timeline views with dependency tracking.",
+  "Graphic Design":
+    "When choosing a graphic design tool, consider your primary output medium (print vs digital), preferred workflow (vector vs raster), and budget. Adobe Illustrator remains the industry standard for vector graphics with unmatched precision tools, while Affinity Designer offers a compelling one-time purchase alternative. For raster work, Adobe Photoshop leads for photo manipulation and digital painting, with Pixelmator Pro and Affinity Photo as cost-effective alternatives. Consider the learning curve, file format compatibility, and integration with other tools in your pipeline.",
+  "UI/UX Design":
+    "The best UI/UX design tool depends on your team structure and workflow preferences. Figma leads the market with real-time collaboration, browser-based access, and a vast plugin ecosystem. Sketch remains popular for Mac-based teams with its mature symbol system. Framer excels for interactive prototypes with code-level control. Key factors include collaboration features, prototyping fidelity, design system support, developer handoff capabilities, and community resources for templates and components.",
+  "3D & Motion":
+    "Evaluate 3D & motion design tools based on your specific discipline. Blender offers a powerful free option with modeling, sculpting, animation, and rendering in one package. Cinema 4D is favored by motion designers for its intuitive workflow and MoGraph tools. Autodesk Maya remains the industry standard for character animation and visual effects. Consider rendering engine support (GPU vs CPU), learning resources, plugin availability, and compatibility with your production pipeline.",
+  Prototyping:
+    "Prototyping tools vary from low-fidelity wireframing to high-fidelity interactive simulations. Figma and Sketch serve as both design and prototyping tools with built-in interactions. For dedicated high-fidelity prototyping with complex animations and conditional logic, tools like ProtoPie, Principle, and Axure RP offer advanced capabilities. InVision provides excellent stakeholder feedback and handoff features. Consider how well the tool simulates real user interactions and integrates with your design-to-development workflow.",
+  "Design Resources":
+    "Choosing design resource platforms depends on the type of assets you need. Envato Elements offers the broadest library with unlimited downloads of fonts, templates, graphics, and stock media for a flat subscription fee. Creative Market excels for premium, handcrafted design assets sold individually. For stock photography, Shutterstock and Unsplash offer different trade-offs between quality and cost. Consider licensing terms, search functionality, file formats offered, and whether the platform integrates with your design tools.",
 };
 
 const FAQS: Record<string, { q: string; a: string }[]> = {
-  CRM: [
+  "Graphic Design": [
     {
-      q: "What's the best CRM for small businesses?",
-      a: "For small businesses, HubSpot's free CRM offers the best value with contact management, deal tracking, and email integration at no cost. Freshsales is also excellent for growing teams with its intuitive interface and built-in phone system starting at $9/user/month.",
+      q: "What's the best graphic design software for beginners?",
+      a: "For beginners, Canva offers the easiest learning curve with drag-and-drop templates and a free tier. GIMP and Inkscape are excellent free open-source alternatives that provide professional-grade capabilities. Affinity Designer and Affinity Photo offer a middle ground with one-time purchases and a gentler learning curve than Adobe products.",
     },
     {
-      q: "How much does enterprise CRM cost?",
-      a: "Enterprise CRM costs vary widely. Salesforce Enterprise starts at $165/user/month with full customization, while HubSpot Enterprise runs $3,600/month for 10K contacts. Pipedrive and Zoho offer more affordable plans starting under $15/user/month.",
+      q: "Is Adobe Creative Cloud worth the subscription cost?",
+      a: "Adobe Creative Cloud is worth it for professionals who need the full ecosystem of industry-standard tools, seamless integration between apps, and consistent updates. The Photography Plan ($10/mo) offers excellent value for Photoshop + Lightroom. The All Apps plan ($55/mo) is best for multidisciplinary designers who use multiple Adobe tools regularly.",
     },
     {
-      q: "What CRM features should I prioritize in 2026?",
-      a: "Prioritize AI-powered lead scoring, pipeline forecasting, workflow automation, mobile access with offline mode, and API quality for integrations. In 2026, platforms with strong AI features and agent-ready APIs have a significant advantage.",
-    },
-  ],
-  Marketing: [
-    {
-      q: "Is HubSpot worth the price for marketing automation?",
-      a: "HubSpot Marketing Hub provides exceptional value for mid-market B2B teams that need an all-in-one solution. The free CRM integration, smart content engine, and AI content strategy tools justify the cost for teams that will use the full suite. However, the jump from Starter ($15/mo) to Pro ($890/mo) is steep.",
-    },
-    {
-      q: "What's the best email marketing platform for B2B?",
-      a: "For B2B email marketing, HubSpot is the gold standard for integrated CRM+email. Mailchimp is best for simplicity and ease of use. Marketo Engage leads enterprise-level email automation. Consider your contact list size, automation complexity, and CRM integration needs.",
-    },
-    {
-      q: "What are the must-have marketing automation features?",
-      a: "Essential features include multi-step automation workflows, lead scoring and grading, A/B testing for emails and landing pages, smart content personalization, and integrated analytics. AI-powered content recommendations and predictive lead scoring are becoming table stakes in 2026.",
+      q: "Vector vs raster -- which graphic design tool should I choose?",
+      a: "Choose vector tools (Illustrator, Affinity Designer, CorelDRAW, Inkscape) for logos, icons, typography, and any artwork that needs to scale to any size without losing quality. Choose raster tools (Photoshop, Affinity Photo, GIMP, Procreate) for photo editing, digital painting, textures, and detailed image manipulation. Most professional designers use both types.",
     },
   ],
-  Communication: [
+  "UI/UX Design": [
     {
-      q: "Slack vs Teams vs Zoom — which is best?",
-      a: "Slack is best for deep app integrations and developer-friendly workflows. Microsoft Teams wins for organizations already using Office 365 with its native integration. Zoom Workplace is the strongest choice for video-first organizations that want an all-in-one platform with AI Companion included at no extra cost.",
+      q: "Which is better for UI design -- Figma or Sketch?",
+      a: "Figma is generally the better choice for most teams today due to its browser-based platform (works on Windows, Mac, Linux), real-time multiplayer collaboration, and generous free tier. Sketch remains excellent for Mac-only teams who prefer its native speed and offline performance, but its collaboration features require additional subscriptions.",
     },
     {
-      q: "How do I reduce notification overload in team chat?",
-      a: "Implement channel governance policies (dedicated channels per project/team), use Do Not Disturb hours, set notification preferences per channel, and encourage async communication. Slack's notification schedules and Teams' quiet hours are effective — but culture change is more important than tool settings.",
+      q: "What are the essential features of a good UI/UX design tool?",
+      a: "Essential features include vector editing with boolean operations, reusable component systems with auto-layout, prototyping with transitions and animations, developer handoff with inspect mode, version history, design system management, real-time collaboration, and a robust plugin ecosystem for extending functionality.",
     },
     {
-      q: "Is Slack AI worth the upgrade?",
-      a: "Slack AI provides genuinely useful daily recaps and thread summaries, particularly for managers and executives who can't read every message. The natural-language search across message history saves time finding past decisions. However, enterprise-grade features require Enterprise Grid, which is custom-priced.",
+      q: "Do I need coding skills to use UI/UX design tools?",
+      a: "No, most modern UI/UX tools are designed for visual designers without coding skills. Figma, Sketch, and Adobe XD all use visual interfaces for designing interfaces and creating interactive prototypes. However, basic knowledge of HTML, CSS, and responsive design principles helps you create more developer-friendly designs.",
     },
   ],
-  Management: [
+  "3D & Motion": [
     {
-      q: "Asana vs Monday.com vs ClickUp — which is best?",
-      a: "Asana is best for teams that need portfolio management and goal tracking across departments. Monday.com offers the most visual, customizable interface with minimal training. ClickUp provides the most features per dollar but has a steeper learning curve. Jira remains the standard for software development teams.",
+      q: "What's the best free 3D modeling software?",
+      a: "Blender is by far the best free 3D modeling software, offering a complete pipeline including modeling, sculpting, texturing, rigging, animation, simulation, rendering, and compositing -- all in one package. It's competitive with paid tools like Maya and Cinema 4D, with an active community and extensive learning resources.",
     },
     {
-      q: "What project management methodology works best for SaaS teams?",
-      a: "Most SaaS teams benefit from a hybrid approach — Scrum for engineering sprints, Kanban for ongoing operations, and OKRs for strategic initiatives. Look for tools that support multiple views (board, timeline, calendar) so each team can work their way while leadership gets portfolio-level visibility.",
+      q: "Should I learn Blender or Cinema 4D for motion design?",
+      a: "Cinema 4D is the industry standard for motion design with its intuitive MoGraph toolset, seamless After Effects integration, and artist-friendly workflow. Blender is an excellent free alternative with a steeper learning curve but more capabilities overall. Choose Cinema 4D if you're pursuing professional motion design work; choose Blender if budget is a primary concern.",
     },
     {
-      q: "How much should we budget for project management software?",
-      a: "Expect $10-15/user/month for basic plans, $20-35/user/month for business plans with automation and reporting, and custom pricing for enterprise tiers. For a 50-person team, budget approximately $750-1,500/month for a solid project management solution with automation capabilities.",
+      q: "What hardware do I need for 3D design and rendering?",
+      a: "3D design benefits greatly from a powerful GPU (NVIDIA RTX 3060 or better), at least 16GB RAM (32GB recommended), and a fast multi-core CPU. For GPU rendering, NVIDIA cards with CUDA support are preferred. Consider a dedicated SSD for project files and cache. Cloud rendering services like RebusFarm or Sheepit can supplement local hardware for complex projects.",
+    },
+  ],
+  Prototyping: [
+    {
+      q: "What's the difference between low-fi and hi-fi prototyping?",
+      a: "Low-fidelity prototypes (Balsamiq, pen and paper) focus on layout and flow using simple wireframes without visual design -- ideal for early ideation and usability testing. High-fidelity prototypes (Figma, ProtoPie, Principle) include realistic visuals, animations, and interactions -- better for stakeholder presentations and detailed user testing before development.",
+    },
+    {
+      q: "How do I choose between prototyping tools?",
+      a: "Choose based on your prototyping fidelity needs. For simple click-through wireframes, tools like Balsamiq and Marvel work well. For complex interactions with conditional logic and variables, ProtoPie and Axure RP lead the market. For full-featured design-to-prototype workflows, Figma and Sketch offer built-in prototyping that's sufficient for most UX projects.",
+    },
+    {
+      q: "Can prototyping tools generate code?",
+      a: "Some prototyping tools offer code generation features. Figma can export CSS, Swift, and Android XML through plugins. UXPin Merge allows using production React components directly. Axure RP generates HTML specifications. However, auto-generated code typically requires manual refinement -- it's best used as a reference rather than production-ready output.",
+    },
+  ],
+  "Design Resources": [
+    {
+      q: "Which design resource subscription offers the best value?",
+      a: "Envato Elements at $33/month offers exceptional value with unlimited downloads of fonts, graphics, templates, stock photos, video, and audio across a huge library. Creative Market varies by purchase but offers higher-quality curated assets. Freepik Premium ($9.99/month) is budget-friendly for vector graphics and templates.",
+    },
+    {
+      q: "Are free design resources good enough for commercial projects?",
+      a: "Yes, many free design resources are suitable for commercial projects, but always check the license. Unsplash, Pexels, and Pixabay offer free stock photos with generous commercial licenses. Google Fonts and Font Squirrel provide free commercial-use typefaces. However, for unique brand assets, investing in premium resources often provides better quality and exclusivity.",
+    },
+    {
+      q: "How do I find design resources that integrate with my tools?",
+      a: "Look for platforms that offer direct integrations and plugins for your design tools. Adobe Creative Cloud has built-in marketplace access. Figma Community has thousands of free UI kits and components. Envato Elements has plugins for Adobe tools and WordPress. Many resource platforms also offer Figma and Sketch file formats natively.",
     },
   ],
 };
 
 function getDefaultBuyingGuide(category: string): string {
-  return `When evaluating ${category.toLowerCase()} software solutions, consider your specific use case, team size, budget, and required integrations. Key evaluation criteria include feature completeness, ease of use, scalability, customer support quality, and total cost of ownership. Always take advantage of free trials to test the platform with your actual workflows before committing.`;
+  return `When evaluating ${category.toLowerCase()} tools, consider your specific use case, experience level, budget, and required integrations. Key evaluation criteria include feature completeness, ease of use, learning curve, customer support quality, and total cost of ownership. Always take advantage of free trials to test the tool with your actual workflow before committing.`;
 }
 
 function getDefaultFAQs(category: string): { q: string; a: string }[] {
   return [
     {
-      q: `What is the best ${category.toLowerCase()} software?`,
-      a: `The best ${category.toLowerCase()} software depends on your specific needs. Our rankings are based on verified user reviews, feature analysis, and expert evaluation. Compare the top-rated tools above to find the best fit for your organization.`,
+      q: `What is the best ${category.toLowerCase()} tool?`,
+      a: `The best ${category.toLowerCase()} tool depends on your specific needs. Our rankings are based on verified user reviews, feature analysis, and expert evaluation. Compare the top-rated options above to find the best fit for your workflow.`,
     },
     {
-      q: `How much does ${category.toLowerCase()} software cost?`,
-      a: `Pricing varies widely from free tiers to enterprise plans. Most ${category.toLowerCase()} tools offer monthly or annual subscriptions with tiered pricing based on features and usage. See individual tool pages for detailed pricing information.`,
+      q: `How much does ${category.toLowerCase()} cost?`,
+      a: `Pricing varies widely from free tiers to premium subscriptions. Most ${category.toLowerCase()} tools offer monthly or annual subscriptions, one-time purchases, or free tiers with paid upgrades. See individual tool pages for detailed pricing information.`,
     },
     {
-      q: `What features should I look for in ${category.toLowerCase()} software?`,
-      a: `Essential features include core functionality specific to ${category.toLowerCase()} use cases, integration capabilities with your existing tech stack, reporting and analytics, security and compliance features, and responsive customer support.`,
+      q: `What features should I look for in ${category.toLowerCase()}?`,
+      a: `Essential features include core functionality specific to ${category.toLowerCase()} use cases, integration with your existing tools, ease of learning, community support and documentation, cross-platform availability, and regular updates with new features.`,
     },
   ];
 }
@@ -132,8 +148,8 @@ export function generateMetadata({
     (a, b) => b.rating - a.rating
   );
   return {
-    title: `Best ${category} Software in 2026 — Top ${Math.min(tools.length, 10)} Tools Compared`,
-    description: `Discover the best ${category.toLowerCase()} software in 2026. Compare top-rated platforms with verified reviews, pricing breakdowns, and expert recommendations. Find the perfect ${category.toLowerCase()} tool for your business.`,
+    title: `Best ${category} Tools in 2026 — Top ${Math.min(tools.length, 10)} Picks Compared`,
+    description: `Discover the best ${category.toLowerCase()} tools in 2026. Compare top-rated platforms with verified reviews, pricing breakdowns, and expert recommendations. Find the perfect ${category.toLowerCase()} tool for your projects.`,
     keywords: [
       `best ${category.toLowerCase()} software 2026`,
       `top ${category.toLowerCase()} tools`,
@@ -142,8 +158,8 @@ export function generateMetadata({
       `best ${category.toLowerCase()} platforms`,
     ],
     openGraph: {
-      title: `Best ${category} Software in 2026 — Top Picks & Comparison`,
-      description: `Find the best ${category.toLowerCase()} software for your business. Expert comparisons, verified reviews, and detailed pricing for ${tools.length} leading ${category.toLowerCase()} platforms.`,
+      title: `Best ${category} Tools in 2026 — Top Picks & Comparison`,
+      description: `Find the best ${category.toLowerCase()} tools for your workflow. Expert comparisons, verified reviews, and detailed pricing for ${tools.length} leading ${category.toLowerCase()} platforms.`,
     },
   };
 }

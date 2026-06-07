@@ -47,7 +47,7 @@ export default function Footer() {
               <span className="text-lg font-bold text-[#F0F4F8]">Design Picks</span>
             </Link>
             <p className="text-sm text-[#8BA3BE] leading-relaxed mb-6">
-              The most comprehensive directory of B2B SaaS tools. Discover, compare, and integrate the best software for your business.
+              The most comprehensive directory of design tools and creative software.
             </p>
             <div className="flex items-center gap-3">
               <a href="#" className="w-9 h-9 rounded-lg bg-[#0F1D32] border border-[#1E3A5F] flex items-center justify-center text-[#8BA3BE] hover:text-[#3B82F6] hover:border-[#2A5080] transition-all">

@@ -62,8 +62,8 @@ export default function AboutPage() {
               comparisons quickly go out of date.
             </p>
             <p>
-              We catalog and compare design tools across 5+ categories,
-              including CRM, Marketing, DevOps, Security, HR, Finance, and more.
+              We catalog and compare design tools across 7+ categories,
+              including Graphic Design, UI/UX Design, Prototyping, 3D & Motion, Design Resources, Branding, and Typography.
               Each tool page includes verified pricing tiers, feature lists, pros
               and cons synthesized from user reviews, and practical use case
               recommendations.
