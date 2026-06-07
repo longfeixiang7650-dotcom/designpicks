@@ -39,20 +39,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen antialiased font-sans">
-        {/* Background Effects */}
         <div className="aurora-bg" />
         <div className="grid-pattern" />
 
-        {/* Header */}
         <Header />
 
-        {/* Main Content */}
         <main className="relative z-10">{children}</main>
 
-        {/* Footer */}
         <Footer />
 
-        {/* Cookie Consent Banner */}
         <CookieBanner />
       </body>
     </html>
