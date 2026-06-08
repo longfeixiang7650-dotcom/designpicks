@@ -2,25 +2,17 @@
 
 import { useState, useMemo } from "react";
 import {
-  Search, Star, ArrowRight, Layers, Image, Camera,
-  Grid3X3, MapPin, Heart, Bookmark, Share2, Clock,
-  Users, Download, ChevronRight, Zap, Sparkles,
-  CheckCircle2, Globe, BarChart3, Tag, Filter
+  Search, Star, ArrowRight, Layers, Bookmark, Clock,
 } from "lucide-react";
 import Link from "next/link";
 import { ALL_TOOLS } from "@/data/tools";
 import { BLOG_POSTS } from "@/data/blog-posts";
 
-// ============================================================
-// ============================================================
-
-const ACCENT_COLOR = "#8B5CF6"; // Purple
-const SECONDARY_COLOR = "#EC4899"; // Pink
+const PINK = "#EC4899";
 const SITE_NAME = "DesignPicks";
 
 export default function HomePage() {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const categories = useMemo(() => {
     const m = new Map<string, { count: number; avgRating: number }>();
@@ -31,23 +23,11 @@ export default function HomePage() {
       s.avgRating += t.rating;
     }
     return [...m.entries()]
-      .map(([name, s]) => ({
-        name,
-        count: s.count,
-        avgRating: Math.round((s.avgRating / s.count) * 10) / 10,
-      }))
+      .map(([name, s]) => ({ name, count: s.count, avgRating: Math.round((s.avgRating / s.count) * 10) / 10 }))
       .sort((a, b) => b.count - a.count);
   }, []);
 
-  const displayTools = useMemo(() => {
-    let filtered = [...ALL_TOOLS];
-    if (selectedCategory) {
-      filtered = filtered.filter(t => t.category === selectedCategory);
-    }
-    return filtered.sort((a: any, b: any) => b.rating - a.rating);
-  }, [selectedCategory]);
-
-  const editorPicks = useMemo(
+  const featuredTools = useMemo(
     () => [...ALL_TOOLS].sort((a: any, b: any) => b.rating - a.rating).slice(0, 6),
     []
   );
@@ -55,216 +35,184 @@ export default function HomePage() {
   const latestPosts = useMemo(
     () => [...BLOG_POSTS]
       .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 4),
+      .slice(0, 3),
     []
   );
 
-  const catColors = [
-    { bg: "#1A1F30", accent: "#3B82F6" },
-    { bg: "#1F1A30", accent: "#8B5CF6" },
-    { bg: "#1A3020", accent: "#10B981" },
-    { bg: "#301A1A", accent: "#EF4444" },
-    { bg: "#302A1A", accent: "#F59E0B" },
-    { bg: "#1A2830", accent: "#06B6D4" },
-  ];
+  const filteredCategories = useMemo(
+    () => searchQuery
+      ? categories.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      : categories,
+    [categories, searchQuery]
+  );
 
   return (
-    <div className="min-h-screen bg-[#0A0A10]">
-      <section className="relative pt-24 pb-8 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A10] via-[#0F0F1A] to-[#0A0A10]" />
-        <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-[0.06] blur-[120px]"
-          style={{ background: `radial-gradient(circle, ${ACCENT_COLOR}, ${SECONDARY_COLOR})` }} />
-        <div className="relative max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-2 mb-6">
-            {categories.slice(0, 6).map((cat, i) => (
-              <button
+    <div className="bg-white">
+      {/* ======== HERO ======== */}
+      <section className="px-6 pt-20 pb-12 md:pt-28 md:pb-16">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-tight">
+            Curated{" "}
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(135deg, ${PINK}, #F472B6)` }}>
+              Design Tools
+            </span>
+          </h1>
+          <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
+            Hand-picked design tools and creative software, tested and reviewed by our team.
+            Find what works for your creative workflow.
+          </p>
+
+          {/* Search */}
+          <div className="mt-8 max-w-xl mx-auto">
+            <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden focus-within:border-pink focus-within:ring-2 focus-within:ring-pink/10 transition-all bg-white">
+              <Search className="ml-4 w-5 h-5 text-gray-400 flex-shrink-0" />
+              <input
+                type="search"
+                placeholder="Search categories..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="flex-1 py-3.5 px-3 bg-transparent text-gray-900 placeholder:text-gray-400 outline-none text-sm"
+              />
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <Link
+              href="/#featured-tools"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all hover:opacity-90"
+              style={{ backgroundColor: PINK }}
+            >
+              Browse Tools <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ======== CATEGORIES GRID ======== */}
+      <section className="px-6 py-10 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-title mb-2">Categories</h2>
+          <p className="section-subtitle mb-8">Explore design tools by category</p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {filteredCategories.slice(0, 12).map((cat) => (
+              <Link
                 key={cat.name}
-                onClick={() => setSelectedCategory(selectedCategory === cat.name ? null : cat.name)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs transition-all border"
-                style={{
-                  backgroundColor: selectedCategory === cat.name ? catColors[i % 6].accent + "20" : "#1A1A2A",
-                  borderColor: selectedCategory === cat.name ? catColors[i % 6].accent : "#2A2A3A",
-                  color: selectedCategory === cat.name ? catColors[i % 6].accent : "#9CA3AF",
-                }}
+                href={`/category/${cat.name.toLowerCase().replace(/ /g, "-")}`}
+                className="card p-5 hover:-translate-y-0.5 transition-all group"
               >
-                {cat.name}
-                <span className="text-[10px] opacity-60">{cat.count}</span>
-              </button>
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
+                  style={{ backgroundColor: "#FDF2F8" }}
+                >
+                  <Layers className="w-5 h-5" style={{ color: PINK }} />
+                </div>
+                <h3 className="text-sm font-semibold text-gray-900 group-hover:text-pink transition-colors">
+                  {cat.name}
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">{cat.count} tools</p>
+                <div className="flex items-center gap-1 mt-1">
+                  <Star className="w-3 h-3" style={{ color: PINK, fill: PINK }} />
+                  <span className="text-xs text-gray-500 font-medium">{cat.avgRating}</span>
+                </div>
+              </Link>
             ))}
           </div>
-          <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Curated{" "}
-              <span className="text-transparent bg-clip-text"
-                style={{ backgroundImage: `linear-gradient(135deg, ${ACCENT_COLOR}, ${SECONDARY_COLOR})` }}>
-                {SITE_NAME}
-              </span>
-            </h1>
-            <p className="text-gray-500 mt-2 max-w-xl">
-              Hand-picked design tools and creative software, tested and reviewed by our team.
-              Find what works for your creative workflow.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-            {categories.slice(0, 6).map((cat, i) => {
-              const color = catColors[i % 6];
-              return (
-                <Link
-                  key={cat.name}
-                  href={`/category/${cat.name.toLowerCase().replace(/ /g, "-")}`}
-                  className="rounded-xl p-4 transition-all hover:-translate-y-0.5 group"
-                  style={{ backgroundColor: color.bg }}
-                >
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-2 transition-colors"
-                    style={{ backgroundColor: `${color.accent}20` }}>
-                    <Layers className="w-4 h-4" style={{ color: color.accent }} />
-                  </div>
-                  <h3 className="text-sm font-semibold text-white group-hover:underline">{cat.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1">{cat.count} items</p>
-                  <div className="flex items-center gap-1 mt-1">
-                    <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                    <span className="text-xs text-gray-400">{cat.avgRating}</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+
+          {filteredCategories.length === 0 && (
+            <p className="text-center text-gray-400 py-10">No categories matching &quot;{searchQuery}&quot;</p>
+          )}
         </div>
       </section>
 
-      {/* ======== 视图切换 ======== */}
-      <section className="px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <h2 className="text-lg font-bold text-white">
-              {selectedCategory || "All Picks"}
-            </h2>
-            <span className="text-xs text-gray-500 bg-[#1A1A2A] px-2 py-1 rounded-lg">
-              {displayTools.length} items
-            </span>
-          </div>
-          <div className="flex items-center gap-2 bg-[#1A1A2A] rounded-lg p-1">
-            <button
-              onClick={() => setViewMode("grid")}
-              className={`p-2 rounded-lg transition-colors ${viewMode === "grid" ? "bg-[#2A2A3A] text-white" : "text-gray-500 hover:text-gray-300"}`}
-            >
-              <Grid3X3 className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setViewMode("list")}
-              className={`p-2 rounded-lg transition-colors ${viewMode === "list" ? "bg-[#2A2A3A] text-white" : "text-gray-500 hover:text-gray-300"}`}
-            >
-              <Layers className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-4 pb-12">
+      {/* ======== FEATURED TOOLS (6) ======== */}
+      <section id="featured-tools" className="px-6 py-12">
         <div className="max-w-6xl mx-auto">
-          <div className={viewMode === "grid"
-            ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-            : "space-y-3"}>
-            {editorPicks.map((tool, i) => (
-              viewMode === "grid" ? (
-                <Link
-                  key={tool.id}
-                  href={`/tools/${tool.id}`}
-                  className="group bg-[#0F0F1A] border border-[#1E1E2E] rounded-xl overflow-hidden hover:border-[#2E2E4E] transition-all"
-                >
-                  <div className="aspect-[4/3] bg-gradient-to-br flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${catColors[i % 6].accent}20, ${catColors[(i + 3) % 6].accent}10)`
-                    }}>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-white/20">{tool.name.charAt(0)}</div>
-                    </div>
-                    {i < 2 && (
-                      <span className="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full font-medium"
-                        style={{ backgroundColor: `${ACCENT_COLOR}CC`, color: "white" }}>
-                        Editor&apos;s Pick
-                      </span>
-                    )}
-                  </div>
-                  <div className="p-3">
-                    <h3 className="text-sm font-semibold text-white group-hover:underline">{tool.name}</h3>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-1">{tool.description}</p>
-                    <div className="flex items-center justify-between mt-2">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                        <span className="text-xs text-gray-300 font-medium">{tool.rating}</span>
-                        <span className="text-xs text-gray-600">({tool.reviewCount || 0})</span>
-                      </div>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-[#1A1A2A] text-gray-400">
-                        {tool.pricing || "$"}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ) : (
-                <Link
-                  key={tool.id}
-                  href={`/tools/${tool.id}`}
-                  className="flex items-center gap-4 bg-[#0F0F1A] border border-[#1E1E2E] rounded-xl p-4 hover:border-[#2E2E4E] transition-all group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center text-lg font-bold flex-shrink-0"
-                    style={{ background: `linear-gradient(135deg, ${catColors[i % 6].accent}30, ${catColors[(i + 3) % 6].accent}15)` }}>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="section-title mb-1">Featured Tools</h2>
+              <p className="section-subtitle">Top-rated design tools picked by our editors</p>
+            </div>
+            <Link href="/" className="hidden sm:flex items-center gap-1 text-sm font-medium" style={{ color: PINK }}>
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {featuredTools.map((tool, i) => (
+              <Link
+                key={tool.id}
+                href={`/tools/${tool.id}`}
+                className="card p-5 group hover:-translate-y-0.5 transition-all"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold flex-shrink-0"
+                    style={{ backgroundColor: "#FDF2F8", color: PINK }}
+                  >
                     {tool.name.charAt(0)}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold text-white">{tool.name}</h3>
-                    <p className="text-xs text-gray-500 mt-0.5">{tool.description}</p>
+                  {i < 2 && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-medium text-white" style={{ backgroundColor: PINK }}>
+                      Editor&apos;s Pick
+                    </span>
+                  )}
+                </div>
+                <h3 className="text-sm font-semibold text-gray-900 group-hover:text-pink transition-colors mb-1">
+                  {tool.name}
+                </h3>
+                <p className="text-xs text-gray-500 line-clamp-2 mb-3">{tool.description}</p>
+                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                  <div className="flex items-center gap-1">
+                    <Star className="w-3.5 h-3.5" style={{ color: PINK, fill: PINK }} />
+                    <span className="text-xs font-medium text-gray-700">{tool.rating}</span>
+                    <span className="text-xs text-gray-400">({tool.reviewCount || 0})</span>
                   </div>
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                      <span className="text-sm text-white font-medium">{tool.rating}</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-600" />
-                  </div>
-                </Link>
-              )
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-gray-500 font-medium">
+                    {tool.pricing || "$"}
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ======== LATEST BLOG (3) ======== */}
       {latestPosts.length > 0 && (
-        <section className="px-6 py-10">
+        <section className="px-6 py-12 bg-gray-50">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                <Bookmark className="w-4 h-4" style={{ color: ACCENT_COLOR }} />
-                Latest from {SITE_NAME}
-              </h2>
-              <Link href="/blog" className="text-xs flex items-center gap-1" style={{ color: ACCENT_COLOR }}>
-                View all <ArrowRight className="w-3 h-3" />
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="section-title mb-1">Latest from {SITE_NAME}</h2>
+                <p className="section-subtitle">In-depth reviews and comparisons</p>
+              </div>
+              <Link href="/blog" className="hidden sm:flex items-center gap-1 text-sm font-medium" style={{ color: PINK }}>
+                View All <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              {latestPosts.map((post: any, i: number) => (
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {latestPosts.map((post: any) => (
                 <Link
-                  key={post.slug || i}
+                  key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="flex gap-4 bg-[#0F0F1A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[#2E2E4E] transition-all group"
+                  className="card p-6 group hover:-translate-y-0.5 transition-all"
                 >
-                  <div className="w-1 flex-shrink-0 rounded-full"
-                    style={{ backgroundColor: catColors[i % 6].accent }} />
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#1A1A2A] text-gray-400">
-                      {post.category || "Article"}
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-pink-light text-pink font-medium">
+                    {post.category || "Article"}
+                  </span>
+                  <h3 className="text-sm font-semibold text-gray-900 mt-3 mb-2 group-hover:text-pink transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 line-clamp-2 mb-4">{post.excerpt}</p>
+                  <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-auto">
+                    <span>{post.date}</span>
+                    <span>·</span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {post.readTime || "3 min"}
                     </span>
-                    <h3 className="text-sm font-semibold text-white mt-2 mb-1 group-hover:underline line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 line-clamp-2">{post.excerpt}</p>
-                    <div className="flex items-center gap-2 mt-2 text-[10px] text-gray-600">
-                      <span>{post.date}</span>
-                      <span>·</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" /> {post.readTime || "3 min"}
-                      </span>
-                    </div>
                   </div>
                 </Link>
               ))}
@@ -274,28 +222,28 @@ export default function HomePage() {
       )}
 
       {/* ======== CTA ======== */}
-      <section className="px-6 py-14">
+      <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-2xl p-10 text-center overflow-hidden"
-            style={{ background: `linear-gradient(135deg, ${ACCENT_COLOR}20, ${SECONDARY_COLOR}10)` }}>
-            <div className="absolute inset-0 opacity-[0.03]"
-              style={{ backgroundImage: `radial-gradient(circle at 30% 50%, ${ACCENT_COLOR}, transparent 60%)` }} />
-            <div className="relative">
-              <CheckCircle2 className="w-8 h-8 mx-auto mb-3" style={{ color: ACCENT_COLOR }} />
-              <h2 className="text-xl font-bold text-white mb-2">
-                Find your perfect design tool
-              </h2>
-              <p className="text-sm text-gray-500 mb-6">
-                Browse our full collection of curated design and creative software.
-              </p>
-              <Link
-                href="/all-tools"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition-all hover:scale-105"
-                style={{ backgroundColor: ACCENT_COLOR }}
-              >
-                Browse All <ArrowRight className="w-4 h-4" />
-              </Link>
+          <div className="rounded-2xl p-10 md:p-14 text-center" style={{ backgroundColor: "#FDF2F8" }}>
+            <div
+              className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
+              style={{ backgroundColor: PINK }}
+            >
+              <Star className="w-6 h-6 text-white" />
             </div>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+              Find your perfect design tool
+            </h2>
+            <p className="text-sm text-gray-500 mb-6 max-w-md mx-auto">
+              Browse our full collection of curated design and creative software.
+            </p>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all hover:opacity-90"
+              style={{ backgroundColor: PINK }}
+            >
+              Browse All <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
