@@ -5,6 +5,7 @@ const BLOG_SLUGS = [
     "adobe-illustrator-vs-affinity-designer-vs-coreldraw-2026-vector-software-comparison",
     "canva-vs-adobe-express-vs-visme-2026-comparison",
     "best-image-editing-software-photographers-2026",
+  "design-tools-trends-2026-ai-collaboration",
 ] as const;
 
 const TOOL_SLUGS = [
