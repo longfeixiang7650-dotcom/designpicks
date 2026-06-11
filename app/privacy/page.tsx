@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Design Picks",
+  title: "Privacy Policy — Orbit Frame",
   description:
-    "Learn how Design Picks collects, uses, and protects your personal data. Our privacy policy outlines our commitment to your privacy and data security.",
+    "Learn how Orbit Frame collects, uses, and protects your personal data. Our privacy policy outlines our commitment to your privacy and data security.",
 };
 
 export default function PrivacyPage() {
@@ -26,9 +26,9 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-[#F0F4F8] mb-3">1. Introduction</h2>
             <p>
-              Design Picks ("we," "our," or "us") is committed to protecting your privacy.
+              Orbit Frame ("we," "our," or "us") is committed to protecting your privacy.
               This Privacy Policy explains how we collect, use, disclose, and safeguard your
-              information when you visit our website designpicks.net (the "Site"). Please read this
+              information when you visit our website orbitframe.design (the "Site"). Please read this
               policy carefully. If you do not agree with the terms, do not access the Site.
             </p>
           </section>
@@ -148,7 +148,7 @@ export default function PrivacyPage() {
               <li><strong>Right to Opt Out (CCPA):</strong> California residents may opt out of the sale of their personal information. We do not sell personal information.</li>
             </ul>
             <p className="mt-3">
-              To exercise any of these rights, please contact us at privacy@designpicks.net. We
+              To exercise any of these rights, please contact us at privacy@orbitframe.design. We
               will respond to your request within 30 days.
             </p>
           </section>
@@ -181,7 +181,7 @@ export default function PrivacyPage() {
               knowingly collect personal information from children. If we become aware that a
               child has provided us with personal data, we will delete it immediately. Parents
               or guardians who believe their child has submitted information to us should contact
-              us at privacy@designpicks.net.
+              us at privacy@orbitframe.design.
             </p>
           </section>
 
@@ -211,9 +211,9 @@ export default function PrivacyPage() {
               contact us:
             </p>
             <div className="mt-4 p-5 bg-[#0F1D32] border border-[#1E3A5F] rounded-xl">
-              <p className="mb-2"><strong className="text-[#F0F4F8]">Email:</strong> privacy@designpicks.net</p>
-              <p className="mb-2"><strong className="text-[#F0F4F8]">Support:</strong> support@designpicks.net</p>
-              <p><strong className="text-[#F0F4F8]">Address:</strong> 88 Creative Crescent, Suite 100, San Francisco, CA 94105</p>
+              <p className="mb-2"><strong className="text-[#F0F4F8]">Email:</strong> privacy@orbitframe.design</p>
+              <p className="mb-2"><strong className="text-[#F0F4F8]">Support:</strong> hello@orbitframe.design</p>
+              <p><strong className="text-[#F0F4F8]">Address:</strong> Wycker Brugstraat 28, 6221 EC Maastricht, Netherlands</p>
             </div>
           </section>
         </div>

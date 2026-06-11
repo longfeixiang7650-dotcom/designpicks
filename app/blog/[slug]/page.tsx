@@ -166,13 +166,13 @@ export default async function BlogPostPage({
     post.title,
     post.author,
     post.date,
-    'DesignPicks',
+    'Orbit Frame',
     post.excerpt
   );
   const orgJsonLd = organizationSchema(
-    'Design Picks',
-    'https://designpicks.net',
-    'Design curation and comparison platform for creative professionals.'
+    'Orbit Frame',
+    'https://orbitframe.design',
+    'Orbit Frame is a 6-person UI/UX design studio based in Maastricht, Netherlands.'
   );
 
   return (
@@ -256,7 +256,7 @@ export default async function BlogPostPage({
                     <p className="font-bold text-[#F0F4F8]">{post.author}</p>
                     <p className="text-sm text-[#8BA3BE]">{post.authorRole}</p>
                     <p className="text-xs text-[#4A6380] mt-2">
-                      Designpicks independently researches and verifies all product data. Ratings sourced from G2, Capterra, and other trusted review platforms.
+                      Orbit Frame independently researches and verifies all product data. Ratings sourced from G2, Capterra, and other trusted review platforms.
                     </p>
                   </div>
                 </div>

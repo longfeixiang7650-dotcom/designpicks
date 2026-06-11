@@ -8,9 +8,9 @@ interface JsonLdProps {
 }
 
 export default function JsonLd({
-  siteName = 'Design Picks',
-  siteUrl = 'https://designpicks.net',
-  description = 'Design curation and comparison platform for creative professionals.',
+  siteName = 'Orbit Frame',
+  siteUrl = 'https://orbitframe.design',
+  description = 'Orbit Frame is a 6-person UI/UX design studio based in Maastricht, Netherlands.',
 }: JsonLdProps) {
   useEffect(() => {
     const script = document.createElement('script');

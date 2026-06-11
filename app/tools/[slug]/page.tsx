@@ -68,9 +68,9 @@ export default function ToolDetailPage() {
     scripts.push(s1);
 
     const org = organizationSchema(
-      'Design Picks',
-      'https://designpicks.net',
-      'Design curation and comparison platform for creative professionals.'
+      'Orbit Frame',
+      'https://orbitframe.design',
+      'Orbit Frame is a 6-person UI/UX design studio based in Maastricht, Netherlands.'
     );
     const s2 = document.createElement('script');
     s2.type = 'application/ld+json';

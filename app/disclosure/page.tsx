@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Affiliate Disclosure — Design Picks",
+  title: "Affiliate Disclosure — Orbit Frame",
   description:
-    "Design Picks' affiliate disclosure policy. Learn how we may earn commissions through partner links on our site.",
+    "Orbit Frame's affiliate disclosure policy. Learn how we may earn commissions through partner links on our site.",
 };
 
 export default function DisclosurePage() {
@@ -26,7 +26,7 @@ export default function DisclosurePage() {
           <section>
             <h2 className="text-xl font-bold text-[#F0F4F8] mb-3">Transparency First</h2>
             <p>
-              Design Picks is committed to transparency. This Affiliate Disclosure
+              Orbit Frame is committed to transparency. This Affiliate Disclosure
               explains how we may earn compensation through links on our website.
             </p>
           </section>
@@ -34,7 +34,7 @@ export default function DisclosurePage() {
           <section>
             <h2 className="text-xl font-bold text-[#F0F4F8] mb-3">Affiliate Links</h2>
             <p>
-              Some of the links on Design Picks are affiliate links. This means that
+              Some of the links on Orbit Frame are affiliate links. This means that
               if you click on a link and make a purchase or sign up for a service, we may
               receive a commission at no additional cost to you.
             </p>
@@ -77,8 +77,8 @@ export default function DisclosurePage() {
             <p>
               If you have any questions about our affiliate relationships or this
               disclosure, please contact us at{" "}
-              <a href="mailto:info@designpicks.net" className="text-[#3B82F6] hover:underline">
-                info@designpicks.net
+              <a href="mailto:hello@orbitframe.design" className="text-[#3B82F6] hover:underline">
+                hello@orbitframe.design
               </a>
               .
             </p>

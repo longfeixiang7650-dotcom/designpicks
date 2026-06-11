@@ -4,23 +4,25 @@
 
 @layer base {
   :root {
-    --pink: #EC4899;
-    --pink-light: #FDF2F8;
-    --pink-hover: #DB2777;
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FAFAFA;
-    --bg-tertiary: #F5F5F5;
-    --border-subtle: #E5E7EB;
+    --pink: #ec4899;
+    --pink-light: #fdf2f8;
+    --pink-hover: #db2777;
+    --pink-soft: #fce7f3;
+    --pink-bg: #fff5f9;
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-tertiary: #f5f5f5;
+    --border-subtle: #e5e7eb;
     --border-active: var(--pink);
     --text-primary: #111827;
-    --text-secondary: #6B7280;
-    --text-muted: #9CA3AF;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
     --radius: 0.5rem;
   }
 
   body {
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-primary);
+    background-color: var(--pink-bg);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,6 +71,27 @@
   .section-subtitle {
     @apply text-base;
     color: var(--text-secondary);
+  }
+
+  /* Gallery masonry layout */
+  .gallery-masonry {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .gallery-masonry { column-count: 2; }
+  }
+
+  @media (min-width: 1024px) {
+    .gallery-masonry { column-count: 3; }
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
   }
 
   ::-webkit-scrollbar { width: 8px; height: 8px; }
