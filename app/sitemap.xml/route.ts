@@ -7,6 +7,7 @@ const BLOG_SLUGS = [
     "best-image-editing-software-photographers-2026",
   "design-tools-trends-2026-ai-collaboration",
     "spline-vs-framer-vs-protopie-2026",
+    "design-systems-tools-2026-comparison",
 ] as const;
 
 const TOOL_SLUGS = [
