@@ -31,3 +31,4 @@ newtools.js
 new-tools-batch.ts
 .vercel
 .next_old/
+scripts/*
