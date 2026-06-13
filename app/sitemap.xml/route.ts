@@ -8,6 +8,8 @@ const BLOG_SLUGS = [
   "design-tools-trends-2026-ai-collaboration",
     "spline-vs-framer-vs-protopie-2026",
     "design-systems-tools-2026-comparison",
+    "prototyping-tools-2026-ui-ux-comparison",
+    "best-ai-design-tools-2026-comparison",
 ] as const;
 
 const TOOL_SLUGS = [
